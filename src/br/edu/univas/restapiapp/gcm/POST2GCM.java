@@ -42,7 +42,7 @@ public class POST2GCM {
 			DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
 
 			// 5.3 Copy Content "JSON" into
-			mapper.writeValue(wr, content.getRegistration_ids());
+			mapper.writeValue(wr, content);
 
 			// 5.4 Send the request
 			wr.flush();

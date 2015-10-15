@@ -10,6 +10,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import br.edu.univas.restapiapp.gcm.EnviarMensagemGCM;
 import br.edu.univas.restapiapp.model.Usuario;
 
 public class ListenerAtualizacoesGCM implements ServletContextListener {
@@ -37,9 +38,8 @@ public class ListenerAtualizacoesGCM implements ServletContextListener {
 					Atualizacoes at = new Atualizacoes();
 					List<Usuario> usuarios = at.buscaAtualizaoEventos();
 					if (usuarios.size() > 0) {
-						// @SuppressWarnings("unused")
-						// EnviarMensagemGCM gcm = new
-						// EnviarMensagemGCM(usuarios);
+						@SuppressWarnings("unused")
+						EnviarMensagemGCM gcm = new EnviarMensagemGCM(usuarios);
 						System.out
 								.println("=========================================");
 						System.out
