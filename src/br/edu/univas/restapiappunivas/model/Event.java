@@ -1,4 +1,4 @@
-package br.edu.univas.restapiapp.model;
+package br.edu.univas.restapiappunivas.model;
 
 import java.util.Date;
 
@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlElement;
 
 @Entity
 @Table(name = "eventos")
-public class Evento {
+public class Event {
 
 	@Id
 	@SequenceGenerator(name = "id_evento", sequenceName = "seq_id_evento", allocationSize = 1)
@@ -52,11 +52,11 @@ public class Evento {
 	@Column(name = "tipo_evento", nullable = false)
 	@Enumerated(EnumType.STRING)
 	@XmlElement
-	private TipoEvento tipoEvento;
+	private EventType tipoEvento;
 
 	@ManyToOne
 	@JoinColumn(name = "id_aluno")
-	private Aluno aluno;
+	private Student aluno;
 
 	public Long getIdEvento() {
 		return idEvento;
@@ -106,11 +106,11 @@ public class Evento {
 		this.descricao = descricao;
 	}
 
-	public TipoEvento getTipoEvento() {
+	public EventType getTipoEvento() {
 		return tipoEvento;
 	}
 
-	public void setTipoEvento(TipoEvento tipoEvento) {
+	public void setTipoEvento(EventType tipoEvento) {
 		this.tipoEvento = tipoEvento;
 	}
 
@@ -131,7 +131,7 @@ public class Evento {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Evento other = (Evento) obj;
+		Event other = (Event) obj;
 		if (idEvento == null) {
 			if (other.idEvento != null)
 				return false;

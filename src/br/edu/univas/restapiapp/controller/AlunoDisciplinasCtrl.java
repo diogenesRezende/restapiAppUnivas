@@ -9,8 +9,8 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response.Status;
 
 import br.edu.univas.restapiapp.entities.AlunoDisciplinas;
-import br.edu.univas.restapiapp.model.Disciplina;
-import br.edu.univas.restapiapp.util.JpaUtil;
+import br.edu.univas.restapiappunivas.model.Discipline;
+import br.edu.univas.restapiappunivas.util.JpaUtil;
 
 public class AlunoDisciplinasCtrl {
 	
@@ -25,9 +25,9 @@ public class AlunoDisciplinasCtrl {
 			query.setParameter("id", idAluno);
 			@SuppressWarnings("unchecked")
 			List<Object[]> resultSet = query.getResultList();
-			List<Disciplina> disciplinas = new ArrayList<Disciplina>();
+			List<Discipline> disciplinas = new ArrayList<Discipline>();
 			for (Object[] obj : resultSet) {
-				Disciplina d = new Disciplina();
+				Discipline d = new Discipline();
 				d.setIdDisciplina((Long) obj[0]);
 				d.setIdDbExterno((Long) obj[1]);
 				d.setNome((String) obj[2]);

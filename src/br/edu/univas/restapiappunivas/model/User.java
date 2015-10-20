@@ -1,4 +1,4 @@
-package br.edu.univas.restapiapp.model;
+package br.edu.univas.restapiappunivas.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "usuario")
 @XmlRootElement
-public class Usuario {
+public class User {
 
 	@Id
 	@SequenceGenerator(name = "id_usuario", sequenceName = "seq_id_usuario", allocationSize = 1)
@@ -83,7 +83,7 @@ public class Usuario {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Usuario other = (Usuario) obj;
+		User other = (User) obj;
 		if (idUsuario == null) {
 			if (other.idUsuario != null)
 				return false;

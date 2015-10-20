@@ -6,9 +6,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import br.edu.univas.restapiapp.model.Atualizacao;
-import br.edu.univas.restapiapp.model.Usuario;
-import br.edu.univas.restapiapp.util.JpaUtil;
+import br.edu.univas.restapiappunivas.model.Atualizacao;
+import br.edu.univas.restapiappunivas.model.User;
+import br.edu.univas.restapiappunivas.util.JpaUtil;
 
 public class Atualizacoes {
 
@@ -16,7 +16,7 @@ public class Atualizacoes {
 
 	}
 
-	public List<Usuario> buscaAtualizaoEventos() {
+	public List<User> buscaAtualizaoEventos() {
 		System.out.println("=========================================");
 		System.out.println("=========================================");
 		System.out.println("rodando buscaAtualizaoEventos()");
@@ -29,10 +29,10 @@ public class Atualizacoes {
 
 		try {
 			String jpql = "select distinct u from Aluno a inner join a.eventos e inner join a.usuario u where e.dataLancamento >= :ultimaAtualizacao";
-			TypedQuery<Usuario> query = em.createQuery(jpql, Usuario.class);
+			TypedQuery<User> query = em.createQuery(jpql, User.class);
 
 			query.setParameter("ultimaAtualizacao", ultimaAtualizacao);
-			List<Usuario> eventos = query.getResultList();
+			List<User> eventos = query.getResultList();
 			return eventos;
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -10,8 +10,8 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response.Status;
 
-import br.edu.univas.restapiapp.model.Usuario;
-import br.edu.univas.restapiapp.util.JpaUtil;
+import br.edu.univas.restapiappunivas.model.User;
+import br.edu.univas.restapiappunivas.util.JpaUtil;
 
 @Path("/usuarios")
 @Produces({ MediaType.APPLICATION_JSON })
@@ -19,15 +19,15 @@ import br.edu.univas.restapiapp.util.JpaUtil;
 public class UsuarioResource {
 	@POST
 	@Path("/usuario")
-	public void receiveGoogleId(Usuario user) {
+	public void receiveGoogleId(User user) {
 		EntityManager em = JpaUtil.getEntityManager();
 
 		try {
 
 			String jpql = "select u from Usuario u where u.username=:id";
-			TypedQuery<Usuario> query = em.createQuery(jpql, Usuario.class)
+			TypedQuery<User> query = em.createQuery(jpql, User.class)
 					.setParameter("id", user.getUsername());
-			Usuario userNew = query.getSingleResult();
+			User userNew = query.getSingleResult();
 
 			// if (userNew.getIdGCM().isEmpty()) {
 			userNew.setIdGCM(user.getIdGCM());

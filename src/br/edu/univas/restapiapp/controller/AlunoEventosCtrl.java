@@ -11,8 +11,8 @@ import javax.ws.rs.core.Response.Status;
 
 import br.edu.univas.restapiapp.entities.AlunoEvento;
 import br.edu.univas.restapiapp.entities.AlunoEventos;
-import br.edu.univas.restapiapp.model.TipoEvento;
-import br.edu.univas.restapiapp.util.JpaUtil;
+import br.edu.univas.restapiappunivas.model.EventType;
+import br.edu.univas.restapiappunivas.util.JpaUtil;
 
 public class AlunoEventosCtrl {
 
@@ -43,7 +43,7 @@ public class AlunoEventosCtrl {
 				ae.setValor((int) obj[2]);
 				ae.setNota((int) obj[3]);
 				ae.setDescricao((String) obj[4]);
-				ae.setTipoEvento((TipoEvento) obj[5]);
+				ae.setTipoEvento((EventType) obj[5]);
 				ae.setIdDisciplina((Long) obj[6]);
 				ae.setIdDbExterno((Long) obj[7]);
 				// ae.setIdAluno((Long) obj[8]);

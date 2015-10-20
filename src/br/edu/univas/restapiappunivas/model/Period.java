@@ -1,4 +1,4 @@
-package br.edu.univas.restapiapp.model;
+package br.edu.univas.restapiappunivas.model;
 
 import java.util.Date;
 import java.util.List;
@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "periodo")
 @XmlRootElement
-public class Periodo {
+public class Period {
 
 	@Id
 	@SequenceGenerator(name = "id_periodo", sequenceName = "seq_id_periodo", allocationSize = 1)
@@ -38,11 +38,11 @@ public class Periodo {
 
 	@OneToMany
 	@JoinColumn(name = "id_periodo")
-	private List<Aluno> alunos;
+	private List<Student> alunos;
 
 	@OneToMany
 	@JoinColumn(name = "id_periodo")
-	private List<Disciplina> disciplinas;
+	private List<Discipline> disciplinas;
 
 	public Long getIdPeriodo() {
 		return idPeriodo;
@@ -85,7 +85,7 @@ public class Periodo {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Periodo other = (Periodo) obj;
+		Period other = (Period) obj;
 		if (idPeriodo == null) {
 			if (other.idPeriodo != null)
 				return false;

@@ -2,7 +2,7 @@ package br.edu.univas.restapiapp.gcm;
 
 import java.util.List;
 
-import br.edu.univas.restapiapp.model.Usuario;
+import br.edu.univas.restapiappunivas.model.User;
 
 /**
  * Hello world!
@@ -10,7 +10,7 @@ import br.edu.univas.restapiapp.model.Usuario;
  */
 
 public class EnviarMensagemGCM {
-	public EnviarMensagemGCM(List<Usuario> usuarios) {
+	public EnviarMensagemGCM(List<User> usuarios) {
 		System.out.println("Enviando para o GCM!");
 
 		String apiKey = "AIzaSyC58w1R-0DzfpTzZx3e4WUKSXwE_VoDvqU";
@@ -23,11 +23,11 @@ public class EnviarMensagemGCM {
 		}
 	}
 
-	private ConteudoMensagemGCM createContent(List<Usuario> usuarios) {
+	private ConteudoMensagemGCM createContent(List<User> usuarios) {
 
 		ConteudoMensagemGCM c = new ConteudoMensagemGCM();
 
-		for (Usuario usuario : usuarios) {
+		for (User usuario : usuarios) {
 			if (usuario.getIdGCM() == null) {
 				System.out.println("Usuario -" + usuario.getUsername()
 						+ " não possui id do gcm cadastrado");
